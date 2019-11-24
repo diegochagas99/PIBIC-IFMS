@@ -1,6 +1,5 @@
  import React from 'react';
- import Home from './components/home/home';
- import Cadastro from "./components/cadastro/cadastro";
+import Login from './components/login/login';
  import { Container } from 'react-materialize';
  import { Switch, Route } from 'react-router-dom';
 
@@ -8,8 +7,7 @@
      <main>
          <Container>
              <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route path='/cadastro' component={Cadastro}/>
+                <Route exact path='/' component={Login}/>
             </Switch>
          </Container>
      </main>
