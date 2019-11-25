@@ -9,21 +9,24 @@ export default class Home extends Component {
     super(props);
 
     this.state = {
+      login: {
+        email: '',
+        senha: ''
+      },
       estaLogando: false,
       estaAutenticado: false,
       erro: false
     };
-
-    this.email = null;
-    this.senha = null;
-
   }
 
 
   autenticaUsuario = () => {
     this.setState({ estaLogando: true, erro: false });
+    const email = this.state.login.email;
+    const senha = this.state.login.senha;
+    console.log(email, senha)
     auth
-      .signInWithEmailAndPassword(this.email.value, this.senha.value)
+      .signInWithEmailAndPassword(email, senha)
       .then(user => {
         this.setState({ estaAutenticado: true });
       })
@@ -36,6 +39,18 @@ export default class Home extends Component {
         });
       });
   };
+
+  aoAlterar = (event) => {
+    const valor = event.target.value;
+    const nome = event.target.name;
+
+    let login = { ...this.state.login };
+
+    login[nome] = valor;
+
+    this.setState({ login });
+
+  }
 
   render() {
     if (this.state.estaAutenticado) {
@@ -52,8 +67,9 @@ export default class Home extends Component {
                 placeholder="Usuário"
                 type="email"
                 label="Login"
-                ref={ref => (this.email = ref)}
                 name="email"
+                value={this.state.login.email}
+                onChange={this.aoAlterar}
                 maxlength="30"
                 s={12}
                 required
@@ -61,8 +77,9 @@ export default class Home extends Component {
               <Input
                 placeholder="Senha"
                 label="Senha"
-                ref={ref => (this.senha = ref)}
                 name="senha"
+                value={this.state.login.senha}
+                onChange={this.aoAlterar}
                 type="password"
                 maxlength="16"
                 s={12}
