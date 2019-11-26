@@ -15,5 +15,6 @@ const app = firebase.initializeApp(firebaseConfig);
 const config = Rebase.createClass(app.database());
 
 export const auth = app.auth();
+export const database = app.database();
 
 export default config;

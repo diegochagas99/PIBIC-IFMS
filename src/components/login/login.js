@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Row, Col, Card, Input, Button } from "react-materialize";
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
 import { auth } from "../../config/config";
 
@@ -18,7 +28,6 @@ export default class Home extends Component {
       erro: false
     };
   }
-
 
   autenticaUsuario = () => {
     this.setState({ estaLogando: true, erro: false });
@@ -57,48 +66,73 @@ export default class Home extends Component {
       return <Redirect to="/cadastro" />;
     }
 
+    const useStyles = makeStyles(theme => ({
+      paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      form: {
+        width: '100%', // corrigir erro do IE 11.
+        marginTop: theme.spacing(1),
+      },
+      submit: {
+        margin: theme.spacing(3, 0, 2),
+      }
+    }));
+
     return (
-      <Row>
-        <Col m={12} s={12}>
-          <h5>Login</h5>
-          <Card>
-            <Row>
-              <Input
-                placeholder="Usuário"
-                type="email"
-                label="Login"
-                name="email"
-                value={this.state.login.email}
-                onChange={this.aoAlterar}
-                maxlength="30"
-                s={12}
-                required
-              />
-              <Input
-                placeholder="Senha"
-                label="Senha"
-                name="senha"
-                value={this.state.login.senha}
-                onChange={this.aoAlterar}
-                type="password"
-                maxlength="16"
-                s={12}
-                required
-              />
-              {this.state.erro&& <small>Email ou senha incorretos</small>}
-              <Col s={12} m={12}>
-                <Button
-                  waves="light"
-                  className="right grey darken-1"
-                  onClick={this.autenticaUsuario}
-                >
-                  Enviar
-                </Button>
-              </Col>
-            </Row>
-          </Card>
-        </Col>
-      </Row>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div style={useStyles.paper}>
+          <Typography component="h1" variant="h5">
+            Login
+        </Typography>
+          <form style={useStyles.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="senha"
+              label="Senha"
+              type="password"
+              id="senha"
+              autoComplete="senha-atual"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              style={useStyles.button}
+            >
+              Login
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Esqueci minha senha
+              </Link>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+        <Box mt={8}>
+        </Box>
+      </Container>
     );
   }
 }
