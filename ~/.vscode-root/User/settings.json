@@ -1,5 +1,7 @@
 {
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Dracula",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true
 }
