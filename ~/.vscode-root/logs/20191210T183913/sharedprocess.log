@@ -1,0 +1,5 @@
+[2019-12-10 18:39:19.114] [sharedprocess] [info] main {"machineId":"fc1934848d385710a64c5f6040004b69a1077770105e873c0aa5df1aa6242f9c"}
+[2019-12-10 18:39:59.108] [sharedprocess] [info] Starting to clean up unused language packs.
+[2019-12-10 18:40:11.193] [sharedprocess] [info] main {"machineId":"fc1934848d385710a64c5f6040004b69a1077770105e873c0aa5df1aa6242f9c"}
+[2019-12-10 18:40:51.202] [sharedprocess] [info] Starting to clean up unused language packs.
+[2019-12-10 18:40:51.203] [sharedprocess] [info] Skipping directory ed28a1580eefbd9782658c66d7e890f1.pt-br. Language pack still in use.

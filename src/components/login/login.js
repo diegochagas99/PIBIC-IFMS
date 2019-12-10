@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import { auth } from "../../config/config";
+import { Redirect } from "react-router-dom";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
 export default class Home extends Component {
   constructor(props) {
@@ -57,37 +49,21 @@ export default class Home extends Component {
     this.setState({ login });
 
   }
-
   render() {
     if (this.state.estaAutenticado) {
       return <Redirect to="/cadastro" />;
     }
 
-    const useStyles = makeStyles(theme => ({
-      paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      },
-      form: {
-        width: '100%', // corrigir erro do IE 11.
-        marginTop: theme.spacing(1),
-      },
-      submit: {
-        margin: theme.spacing(3, 0, 2),
-      }
-    }));
-
     return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div style={useStyles.paper}>
-          <Typography component="h1" variant="h5">
-            Login
-        </Typography>
-          <form style={useStyles.form} noValidate>
-            <TextField
+      <MDBContainer>
+      <MDBRow>
+        <MDBCol md="6">
+          <form>
+            <p className="h4 text-center mb-4">Login</p>
+            <label className="grey-text">
+              Seu email
+            </label>
+            <input
               variant="outlined"
               margin="normal"
               required
@@ -97,9 +73,12 @@ export default class Home extends Component {
               label="Email"
               name="email"
               maxlenght="30"
-              autoFocus
-            />
-            <TextField
+              autoFocus/>
+            <br />
+            <label className="grey-text">
+              Sua senha
+            </label>
+            <input
               variant="outlined"
               margin="normal"
               required
@@ -110,30 +89,20 @@ export default class Home extends Component {
               value={this.state.login.senha}
               onChange={this.aoAlterar}
               maxlenght="16"
-              autoComplete="senha-atual"
-            />
+              autoComplete="senha-atual"/>
+            <div className="text-center mt-4">
+              <MDBBtn
+              color="unique"
+              onClick={this.autenticaUsuario}>
+                Login
+              </MDBBtn>
+            </div>
             {this.state.erro && <small> Email e/ou senha incorretos. </small>}
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              style={useStyles.button}
-              onClick={this.autenticaUsuario}
-            >
-              Login
-            </Button>
-            <Grid container>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Esqueci minha senha
-              </Link>
-              </Grid>
-            </Grid>
           </form>
-        </div>
-        <Box mt={8}>
-        </Box>
-      </Container>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
     );
+
   }
 }

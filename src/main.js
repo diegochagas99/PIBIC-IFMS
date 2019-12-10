@@ -1,6 +1,5 @@
 import React from 'react';
 import Login from './components/login/login';
-import Cadastro from './components/cadastro/cadastro';
 import Container from '@material-ui/core/Container';
 import { Switch, Route } from 'react-router-dom';
 
