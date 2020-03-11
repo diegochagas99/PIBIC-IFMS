@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Input, Button } from 'react-materialize';
-import User from '../user/user';
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput, MDBFormInline } from 'mdbreact';
+/* import User from '../user/user'; */
 import { database } from '../../config/config';
 
 export default class Cadastro extends Component {
@@ -62,46 +62,88 @@ export default class Cadastro extends Component {
 
     render(){
         return(
-            <Row>
-                <Col m={3} s={12}>
-                    <User/>
-                </Col>
-                <Col m={8} s={12}>
-                    <h5>Cadastro</h5>
-                    <Card>
-                        <Row>
-                            <Input 
-                                placeholder="Nome Completo" 
-                                type="text" 
-                                label="Nome"
-                                value={this.state.ficha.nome} 
-                                name="nome"
-                                onChange={this.aoAlterar}
-                                s={12} 
-                            />
-                            <Input 
-                                placeholder="Logradouro" 
-                                label="Endereço"
-                                value={this.state.ficha.endereco} 
-                                name="endereco"
-                                onChange={this.aoAlterar} 
-                                s={12} 
-                            />
-                            <Input 
-                                placeholder="Idade" 
-                                type="number"
-                                value={this.state.ficha.idade} 
-                                name="idade"
-                                onChange={this.aoAlterar}
-                                s={2}
-                            />
-                            <Col s={12} m={12}>
-                                <Button waves='light' onClick={this.salvar} className="right grey darken-1">Enviar</Button>
-                            </Col>
-                        </Row>
-                    </Card>
-                </Col>
-            </Row>
+                <MDBContainer>
+                  <MDBRow>
+                    <MDBCol md="6">
+                      <form>
+                        <p className="h4 text-center mb-4">Cadastro de Ficha de Notificação</p>
+                        <label className="grey-text"> Nome Completo </label>
+                        <input
+                          type="text" 
+                          label="Nome"
+                          value={this.state.ficha.nome} 
+                          name="nome"
+                          onChange={this.aoAlterar}
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Logradouro </label>
+                        <input 
+                          label="Endereço"
+                          value={this.state.ficha.endereco} 
+                          name="endereco"
+                          onChange={this.aoAlterar} 
+                          type="text"
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Idade </label>
+                        <input
+                          type="number"
+                          value={this.state.ficha.idade} 
+                          name="idade"
+                          onChange={this.aoAlterar}
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Telefone </label>
+                        <input
+                          type="number"
+                          value={this.state.ficha.telefone} 
+                          name="telefone"
+                          onChange={this.aoAlterar}
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Número do Cartão do SUS </label>
+                        <input
+                          type="number"
+                          value={this.state.ficha.cartaosus} 
+                          name="cartao-sus"
+                          onChange={this.aoAlterar}
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Unidade de Saúde </label>
+                        <input
+                          type="text"
+                          value={this.state.ficha.unidade} 
+                          name="unidade"
+                          onChange={this.aoAlterar}
+                          className="form-control" />
+                        <br />
+                        <label className="grey-text"> Agravos/Doenças </label>
+                        <select className="browser-default custom-select"
+                          value={this.state.ficha.doencas} 
+                          onChange={this.aoAlterar}>
+                              <option>Escolha uma opção</option>
+                              <option value="1">Dengue</option>
+                              <option value="2">Zika</option>
+                              <option value="3">Chikungunya</option>
+                        </select>
+                        <br />
+                        <label className="grey-text"> Manifestações Clínicas </label>
+                        <div>
+                            <MDBFormInline>
+                                <MDBInput label="Febre" filled type="checkbox" id="checkbox1" containerClass='mr-5' />
+                                <MDBInput label="Fraqueza" filled type="checkbox" id="checkbox2" containerClass='mr-5' />
+                                <MDBInput label="Edema" filled type="checkbox" id="checkbox3" containerClass='mr-5' />
+                            </MDBFormInline>
+                        </div>
+                        <div className="text-center mt-4">
+                          <MDBBtn color="unique" onClick={this.salvar}>
+                            Cadastrar Ficha de Notificação
+                          </MDBBtn>
+                        </div>
+                      </form>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBContainer>
         );
     }
 }
