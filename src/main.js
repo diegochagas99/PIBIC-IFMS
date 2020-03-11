@@ -6,13 +6,13 @@ import { Switch, Route } from 'react-router-dom';
 
 const Main = () => (
     <main>
-         <Container>
-             <Switch>
+        <Container>
+            <Switch>
                 <Route exact path='/' component={Login} />
                 {/*} <Route exact path='/Cadastro' component={Cadastro} /> */}
             </Switch>
-         </Container>
+        </Container>
     </main>
 );
- 
+
 export default Main;

@@ -2,13 +2,13 @@ import firebase from "firebase";
 import Rebase from "re-base";
 
 let firebaseConfig = {
-  apiKey: "AIzaSyC7KBjwVUoH9iEkNNRwtK0OEUswquygYI4",
-  authDomain: "sistema-sesau.firebaseapp.com",
-  databaseURL: "https://sistema-sesau.firebaseio.com",
-  projectId: "sistema-sesau",
-  storageBucket: "sistema-sesau.appspot.com",
-  messagingSenderId: "170329839405",
-  appId: "1:170329839405:web:0fae2d4780b003d21125a4"
+  apiKey: "AIzaSyBmpMKJQnR8VMHCT0uxplFLretYHR-FTLg",
+  authDomain: "sistema-de-notificacao-sesau.firebaseapp.com",
+  databaseURL: "https://sistema-de-notificacao-sesau.firebaseio.com",
+  projectId: "sistema-de-notificacao-sesau",
+  storageBucket: "sistema-de-notificacao-sesau.appspot.com",
+  messagingSenderId: "578160170445",
+  appId: "1:578160170445:web:7f6fd99d03f782fb626084"
 };
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
