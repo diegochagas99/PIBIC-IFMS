@@ -13,7 +13,11 @@
     "react-materialize": "^3.5.0",
     "react-router-dom": "^5.0.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-scripts": "^3.4.0"
+=======
+    "react-scripts": "^3.3.0"
+>>>>>>> 2d57509d8737b643e9feab1f1b9a1e3ec07b93c2
 =======
     "react-scripts": "^3.3.0"
 >>>>>>> 2d57509d8737b643e9feab1f1b9a1e3ec07b93c2
